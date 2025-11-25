@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  litellm:
+    build: .
+
+    volumes:
+      - ./config.yaml:/app/config.yaml
+      - ./proxy.py:/app/proxy.py
+      - ./custom_proxy.py:/app/custom_proxy.py
+
+    # No command - use the CMD from Dockerfile
+
+    ports:
+      - "4000:4000"
+
+    env_file:
+      - .env

@@ -1,0 +1,13 @@
+model_list:
+  - model_name: gpt-main
+    litellm_params:
+      model: openai/gpt-4o-mini
+      api_key: ${OPENAI_API_KEY}
+
+general_settings:
+  master_key: ${LITELLM_MASTER_KEY}
+  
+  # Custom middleware for domain filtering
+  custom_middleware:
+    - module: proxy
+      function: domain_filter_middleware
